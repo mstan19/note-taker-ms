@@ -26,7 +26,7 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch('/notes', {
+  fetch('/api/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -34,13 +34,20 @@ const getNotes = () =>
   });
 
 const saveNote = (note) =>
-  fetch('/notes', {
+  fetch('/api/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
-  });
+  })
+  // .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log('Successful POST request:', data);
+  //   })
+  //   .catch((error) => {
+  //     console.error('Error in POST request:', error);
+  //   });
 
 const deleteNote = (id) =>
   fetch(`/notes/${id}`, {
@@ -53,7 +60,7 @@ const deleteNote = (id) =>
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
-  if (activeNote.id) {
+  if (activeNote.title) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
@@ -99,6 +106,7 @@ const handleNoteDelete = (e) => {
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
+  console.log(activeNote)
   renderActiveNote();
 };
 
