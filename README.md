@@ -11,11 +11,11 @@
 -[Depolyment](#depolyment)
 
 ## Description of the Project
-
+This application can dynamically update the notes, where it can add and delete notes. Node.js and Express (verison 4.16.4) was used to run the application. This application requires you to understand package.json and its node_modules. In additon to that, gitignore file is important to use so certain folders and files are not upload to GitHub. For example, node_modules should not be uploaded to GitHub since this folder gets created during the installition process. Lastly, by creating a server the user does not rely on a local storage to save user's notes where the user can add and delete more than one note.
 
 
 ## Installation
-To create this project, follow these several steps. This application uses Node.js and express (verison 4.16.4) and nodemon (verison 2.0.19). Step one, download Node.js. Next go to the terminal of the index.js and type this command ```npm install```. This creates package.json file. 
+To create this project, follow these several steps. This application uses Node.js and Express (verison 4.16.4) and nodemon (verison 2.0.19). Step one, download Node.js. Next go to the terminal of the index.js and type this command ```npm install```. This creates package.json file. 
 
 
 ## Usage
@@ -38,9 +38,6 @@ Currently, there is no tests for this project.
 
 For more information about this application, please email me at melissastan91@gmail.com. Interested in my work? Checkout my GitHUb repositories. My GitHub username is mstan19, and here is my GitHub profile: https://github.com/mstan19.
 
-## Video
-Click on this link for the demo of this application.
-https://drive.google.com/file/d/1Tmox-hiMAkAiadZhL6NV80Dulyp6LmVi/view?usp=sharing
 
 ## Depolyment
 Click on this link for deployed application
