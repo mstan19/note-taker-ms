@@ -1,5 +1,5 @@
 const express = require('express');
-const PORT = 3002;
+const PORT = process.env.PORT || 3002;
 const app = express();
 const path = require('path');
 const uuid = require('./helper/uuid.js');
