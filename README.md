@@ -42,3 +42,4 @@ For more information about this application, please email me at melissastan91@gm
 ## Depolyment
 Click on this link for deployed application
 https://github.com/mstan19/note-taker-ms
+Heroku: https://nodejs-note-taker-ms.herokuapp.com/notes
