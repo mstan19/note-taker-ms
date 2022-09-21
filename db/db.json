@@ -3,5 +3,10 @@
         "title": "Test",
         "text": "test1",
         "id": "8880"
+    },
+    {
+        "title": "Schedule",
+        "text": "workers",
+        "id": "0d8b"
     }
 ]
