@@ -23,7 +23,7 @@ To use this application, open the terminal, respective to the file. Run the ```n
 
 This is what the index.html will look like when deployed.
 
-![NoteTakerMS mock-up](./Develop/public/assets/images/note-teaker-mockup.png)
+![NoteTakerMS mock-up](public/assets/images/note-teaker-mockup.png)
 
 ## License
 This application does not require any licenses.
