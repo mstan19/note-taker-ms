@@ -2,7 +2,10 @@ const express = require('express');
 const PORT = 3002;
 const app = express();
 const path = require('path');
+const uuid = require('./helper/uuid.js');
+
 const fs = require('fs');
+const { notStrictEqual } = require('assert');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -43,6 +46,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title,
       text,
+      id: uuid(),
     };
 
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
@@ -74,6 +78,46 @@ app.post('/api/notes', (req, res) => {
   
   }
 });
+
+app.delete('/api/notes/:id', (req, res) => {
+  const { id } = req.params;
+  // const db = require('./db/db.json');
+
+  // console.log(id);
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+     const db = JSON.parse(data);
+
+      // const deletedNote = .filter(notStrictEqual=>notes!=req.params.id)
+      const deletedNote = db.find(note => note.id === id);
+      // console.log(deletedNote)        
+      // res.status(200).json(deletedNote);
+
+      if (deletedNote){
+        const newDB = db.filter(note => note.id !== id);
+        console.log(newDB)
+        fs.writeFile(
+          './db/db.json',
+          JSON.stringify(newDB, null, 4),
+          (writeErr) =>
+            writeErr
+              ? console.error(writeErr)
+              : console.log('Successfully updated database!')
+        );  
+
+        res.status(200).json(deletedNote);
+      } else {
+        res 
+          .status(404)
+          .json({message: "ID does not exist"});
+      }
+    }
+
+  })
+});
+
 
 
 app.listen(PORT, () => {
